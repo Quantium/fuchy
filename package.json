@@ -1,0 +1,36 @@
+{
+  "name": "cache-object-handler",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "fuzzylogic": "^0.0.9",
+    "redis": "^0.12.1"
+  },
+  "devDependencies": {
+    "mocha": "^2.2.4"
+  },
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/4yopping/cache-object-handler.git"
+  },
+  "keywords": [
+    "cache",
+    "4yopping",
+    "redis",
+    "fuzzy",
+    "logic"
+  ],
+  "author": "Marco Godínez <markotom@4yopping.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/4yopping/cache-object-handler/issues"
+  },
+  "homepage": "https://github.com/4yopping/cache-object-handler"
+}
