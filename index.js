@@ -10,6 +10,7 @@ var CacheHandler = function (config) {
   this.engine = config.engine;
 
   if (typeof this.config === 'string') {
+    this._configFile = config.config;
     this.config = require(this.config);
   };
 };

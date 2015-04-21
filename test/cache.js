@@ -50,6 +50,7 @@ describe('Cache Handler', function () {
 
     _cacheHandler = new CacheHandler({ config: configFile, engine: client });
     assert.equal(typeof _cacheHandler.config, 'object');
+    assert.equal(_cacheHandler._configFile, configFile);
   });
 
   it('should have a config property correctly', function () {
