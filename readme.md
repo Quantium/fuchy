@@ -7,12 +7,12 @@ var CacheHandler = require('cache-object-handler');
 
 var cacheHandler = new CacheHandler({
   cacheables: {
-    product: true,
-    categories: true,
-    user: {
-      email: true,
-      creditCard: false
-    }
+    product_list: false,
+    product: {
+      product_name: true,
+      price: false
+    },
+    user: true
   },
   engine: new CacheHandler.RedisStore(),
   ttl: 3600
@@ -20,39 +20,25 @@ var cacheHandler = new CacheHandler({
 
 // Verify if property is cacheable
 // Usage: cacheHandler.verify(property);
-cacheHandler.verify('product')
+cacheHandler.verify('product_list')
   .then(function (cacheable) {
-    if (cacheable) {
-      // Do something
-    }
+    // Do something 
   });
 
 // Set property to cache (previously verify if is cacheable)
 // Usage: cacheHandler.set(property, key, value);
-cacheHandler.set('user', 'user:1234567890', {
-    email: 'johndoe@4yopping.com',
-    creditCard: '5232448220306708'
+cacheHandler.set('product', 'product:1234567890', {
+    product_name: 'Flowers',
+    price: '10.00'
   })
-  .then(function (value, cached) {
-    // e.g. Send to mongoose
-    if (cached) {
-      User.
-    }
+  .then(function (value) {
+    // Do something with the value
   });
 
 // Get property from cache if the property is cacheable
 // Usage: cacheHandler.get(property, key);
-cacheHandler.get('user', 'user:1234567890')
+cacheHandler.get('product', 'product:1234567890')
   .then(function (value) {
-    // do something with the value
+    // Do something with the value
   });
-  
-
-  
-  
-/**
- * Example
- */
- 
-
 ```
