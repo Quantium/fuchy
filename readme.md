@@ -31,14 +31,18 @@ cacheHandler.set('product', 'product:1234567890', {
     product_name: 'Flowers',
     price: '10.00'
   })
-  .then(function (value) {
+  .then(function (value, cacheables) {
     // Do something with the value
   });
 
 // Get property from cache if the property is cacheable
 // Usage: cacheHandler.get(property, key);
 cacheHandler.get('product', 'product:1234567890')
-  .then(function (value) {
+  .then(function (value, cacheables) {
     // Do something with the value
+    
+    if (!value) {
+      // e.g. get from mongoose
+    }
   });
 ```
