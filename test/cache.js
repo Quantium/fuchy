@@ -73,3 +73,28 @@ describe('Cache Handler', function () {
 
   it('should have this private functions', function () {});
 });
+
+describe('Verifying cacheables properties', function () {
+  it('should be found cacheable properties on the first level', function () {
+    cacheHandler.verify('product_list')
+      .then(function (cacheable) {
+        assert.equal(cacheable, cacheables.product_list);
+      });
+    cacheHandler.verify('product')
+      .then(function (cacheables) {
+        assert.equal(cacheables.product_name, cacheables.product.product_name);
+        assert.equal(cacheables.price, cacheables.product.price);
+      });
+  });
+
+  it('should be found cacheable properties on the second level', function () {
+    cacheHandler.verify('product.product_name')
+      .then(function (cacheable) {
+        assert.equal(cacheable, cacheables.product.product_name);
+      });
+    cacheHandler.verify('product.price')
+      .then(function (cacheable) {
+        assert.equal(cacheable, cacheables.product.price);
+      });
+  });
+});

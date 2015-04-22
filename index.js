@@ -19,5 +19,6 @@ var CacheHandler = function (config) {
 // redis.hmset(obj, _.pick(obj, propNames))
 CacheHandler.prototype.get = function () {};
 CacheHandler.prototype.set = function () {};
+CacheHandler.prototype.verify = function () {};
 
 module.exports = CacheHandler;
