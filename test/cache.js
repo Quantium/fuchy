@@ -7,10 +7,12 @@ var CacheHandler = require('../index');
 var client = redis.createClient(6379, 'localhost');
 var cacheablesFile = './test/cacheables.json';
 var cacheables = {
-  prop: {
-    subprop1: true,
-    subprop2: false,
-  }
+  product_list: false,
+  product: {
+    product_name: true,
+    price: false
+  },
+  user: true
 };
 
 var cacheHandler = new CacheHandler({
