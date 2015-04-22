@@ -1,5 +1,7 @@
 'use strict';
 
+var P = require('bluebird');
+
 var CacheHandler = function (config) {
   config = config || {};
 
@@ -19,6 +21,18 @@ var CacheHandler = function (config) {
 // redis.hmset(obj, _.pick(obj, propNames))
 CacheHandler.prototype.get = function () {};
 CacheHandler.prototype.set = function () {};
-CacheHandler.prototype.verify = function () {};
+CacheHandler.prototype.verify = function (property) {
+  var promise = new P(function (resolve, reject) {
+    var prop = property.match(/(.+)\../);
+    var subprop = property.match(/.\.(.+)/);
+    if (prop && subprop) {
+      return resolve(this[prop[1]][subprop[1]]);
+    }
+
+    return resolve(this[property]);
+  }.bind(this.cacheables));
+
+  return promise;
+};
 
 module.exports = CacheHandler;
