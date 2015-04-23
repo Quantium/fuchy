@@ -1,17 +1,17 @@
 {
-  "name": "cache-object-handler",
+  "name": "fuchy",
   "version": "0.0.1",
-  "description": "",
+  "description": "A fuzzy logic cache handler",
   "main": "index.js",
   "directories": {
     "test": "test"
   },
   "dependencies": {
-    "bluebird": "^2.9.24",
-    "fuzzylogic": "^0.0.9",
-    "redis": "^0.12.1"
+    "cacheman": "^1.1.0",
+    "fuzzylogic": "^0.0.9"
   },
   "devDependencies": {
+    "cacheman-redis": "^0.2.0",
     "mocha": "^2.2.4"
   },
   "scripts": {
@@ -19,19 +19,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/4yopping/cache-object-handler.git"
+    "url": "https://github.com/4yopping/fuchy.git"
   },
   "keywords": [
     "cache",
+    "cacheman",
     "4yopping",
-    "redis",
     "fuzzy",
     "logic"
   ],
   "author": "Marco Godínez <markotom@4yopping.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/4yopping/cache-object-handler/issues"
+    "url": "https://github.com/4yopping/fuchy/issues"
   },
-  "homepage": "https://github.com/4yopping/cache-object-handler"
+  "homepage": "https://github.com/4yopping/fuchy"
 }

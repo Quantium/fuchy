@@ -1,8 +1,0 @@
-{
-  "product_list": false,
-  "product": {
-    "product_name": true,
-    "price": false
-  },
-  "user": true
-}
