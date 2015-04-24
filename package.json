@@ -1,6 +1,6 @@
 {
   "name": "fuchy",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A fuzzy logic cache handler",
   "main": "index.js",
   "directories": {
