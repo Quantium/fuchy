@@ -4,7 +4,31 @@ This is a wrapper of [Cacheman](https://github.com/cayasso/cacheman) that implem
 
 ## Usage
 
-Take a look to Cacheman [readme](https://github.com/cayasso/cacheman).
+Create a new instance with default TTL (*Time To Live*) and defining the engine:
+
+```js
+var fuchy = new Fuchy('app', {
+  ttl: 3600,
+  engine: 'redis'
+});
+```
+
+You can filter the keys that you don't want store in cache:
+
+```js
+var fuchy = new Fuchy('app', {
+  ttl: 3600,
+  engine: 'redis',
+  noCacheKeys: ['creditCard']
+});
+
+fuchy.set('creditCard', '123456789101112', function (err, value) {
+  // Avoiding to cache a credit card
+});
+```
+
+Take a look to Cacheman [readme](https://github.com/cayasso/cacheman) to read about all methods.
+
 
 ## License
 
