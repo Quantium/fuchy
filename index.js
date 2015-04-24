@@ -12,18 +12,13 @@ var Fuchy = function (cacheName, config) {
 
   if (!config.engine) { throw new Error('Missing mandatory engine property'); }
 
-  this.cacheables = config.cacheables || {};
+  this.noCacheKeys = config.noCacheKeys || [];
   this.ttl = config.ttl || 3600;
 
   this.cacheman = new Cacheman(cacheName, {
     ttl: this.ttl,
     engine: config.engine
   });
-
-  if (typeof this.cacheables === 'string') {
-    this._cacheablesFile = config.cacheables;
-    this.cacheables = require(this.cacheables);
-  };
 };
 
 Fuchy.prototype.get = function (key, callback) {
@@ -42,7 +37,7 @@ Fuchy.prototype.get = function (key, callback) {
 
       if (!valid) {
         this.del(key);
-        this._engine.del(this.key(key) + ':info')
+        this._engine.del(this.key(key) + ':info');
       }
     }
   }.bind(this.cacheman));
@@ -56,8 +51,16 @@ Fuchy.prototype.set = function (key, data, callback) {
     expiration_time: Date.now() + (this.ttl * 1000)
   };
 
+  if (this.noCacheKeys.indexOf(key) > -1) {
+    return callback(null, data);
+  };
+
   this.cacheman._engine.set(this.cacheman.key(key) + ':info', info, this.ttl);
   this.cacheman.set(key, data, callback);
+};
+
+Fuchy.prototype.verify = function (property) {
+  return this.noCacheKeys.indexOf(property) > -1;
 };
 
 module.exports = Fuchy;
