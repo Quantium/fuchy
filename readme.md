@@ -34,7 +34,7 @@ Take a look to Cacheman [readme](https://github.com/cayasso/cacheman) to read ab
 
 The MIT License (MIT)
 
-Copyright (c) 2015 Marco Godínez
+Copyright (c) 2015 Marco Godínez, 4yopping and all the related trademarks
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
