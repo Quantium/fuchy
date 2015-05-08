@@ -2,6 +2,8 @@
 
 This is a wrapper of [Cacheman](https://github.com/cayasso/cacheman) that implements fuzzy logic to flush data.
 
+![Fuchy](./fuchy.png)
+
 ## Usage
 
 Create a new instance with default TTL (*Time To Live*) and defining the engine:
