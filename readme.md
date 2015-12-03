@@ -1,4 +1,8 @@
 # Fuchy
+[![Build Status](https://travis-ci.org/4yopping/fuchy.svg?branch=master)](https://travis-ci.org/4yopping/zoquete)
+[![npm version](https://badge.fury.io/js/fuchy.svg)](http://badge.fury.io/js/zoquete)
+[![Inline docs](http://inch-ci.org/github/4yopping/fuchy.svg?branch=master)](http://inch-ci.org/github/4yopping/zoquete)
+![Dependencies](https://david-dm.org/4yopping/fuchy.svg)
 
 This is a wrapper of [Cacheman](https://github.com/cayasso/cacheman) that implements fuzzy logic to flush data.
 
